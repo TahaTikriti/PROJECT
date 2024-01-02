@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
     <link href="../dist/output.css" rel="stylesheet">
+    <link type="image/png" sizes="32x32" rel="icon" href="../frontend/assets/fav.png">
+
 </head>
 
 <body class="bg-slate-900">
