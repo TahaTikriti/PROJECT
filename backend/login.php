@@ -19,15 +19,17 @@ if (
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
+        $_SESSION['is_logged_in'] = true;
+
 
         // Redirect based on user role
         if ($_SESSION['role'] === 'admin') {
             header("Location: admin/dashboard.php");
         } elseif ($_SESSION['role'] === 'student') {
-            header("Location:../frontend/index.html");
+            header("Location:../frontend/index.php");
         } else {
             // Handle other roles or redirect to a default location
-            header("Location: ../frontend/index.html");
+            header("Location: ../frontend/index.php");
         }
         exit();
     } else {

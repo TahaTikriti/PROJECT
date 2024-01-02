@@ -11,11 +11,12 @@ if (
     $password = md5($_POST['password']);
     $role = 'student';
 
-    $query = "INSERT INTO users (username, email, password, role) VALUES ('$username', '$email', '$password', '$role')";
+    $query = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ssss", $username, $email, $password, $role);
 
-    if ($conn->query($query) === TRUE) {
+    if ($stmt->execute()) {
         echo '<script>alert("Registration successful! Please login."); window.location.href="../frontend/login.html";</script>';
-
         exit();
     } else {
         echo "Error: " . $query . "<br>" . $conn->error;
