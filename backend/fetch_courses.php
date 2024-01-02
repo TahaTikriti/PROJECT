@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-include('connection.php');
+require('connection.php');
 // SQL query to fetch all courses
 $sql = "SELECT * FROM courses";
 $result = $conn->query($sql);
@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
             );
     }
 } else {
-    echo "0 results";
+    http_response_code(404);
 }
 
 // Close the database connection
